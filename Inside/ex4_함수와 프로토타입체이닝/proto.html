@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript</title>
+</head>
+<body>
+
+<script>
+
+
+    var User = function(name) {
+        this.name = name;
+    };
+
+    User.prototype.getName = function() {
+        return this.name;
+    };
+
+    var a = new User('indong');
+
+    var b = {};
+    User.call(b, 'hodong');
+    var c = {};
+    c.__proto__ = User.prototype;
+    c.getAge = function() {
+        return 20;
+    };
+    b.__proto__ = c;
+
+    c.__proto__.getName = function () { return 'hello' };
+
+    var aa = {};
+    User.apply(aa, ['aaName']);
+    console.dir(aa);
+
+    aa.__proto__ = b;
+
+
+
+
+
+</script>
+
+
+</body>
+</html>

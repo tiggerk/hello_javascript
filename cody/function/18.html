@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h3> 함수 호이스팅 </h3>
+<ul>
+    <li> 함수가 정의되기 전에 함수를 호출하기 </li>
+    <li> 함수 선언문 방식만 호이스팅 가능하다!! </li>
+</ul>
+
+<script>
+
+    // 예제 1
+    var speak = function() {
+        sayYo();    // sayYo()는 아직 정의되지 않았지만 호출할 수 있다. 'yo'가 기록된다.
+        function sayYo() {console.log('Yo');}
+    }();    // 함수 호출
+
+
+    // 예제 2
+    console.log(sum(2, 2)); // 아직 정의되지 않은 sum()을 호출한다. 여기서도 호출이 가능하다.
+    function sum(x, y) { return x + y; };   // 4
+
+
+
+    function hoistingExam(){
+        console.log("value = " + value);
+        var value = 10;
+        console.log("value = " + value);
+    }
+    hoistingExam();
+
+    function hoistingExam2(){
+        var value;
+        console.log("value = " + value);
+        value = 10;
+        console.log("value = " + value);
+    }
+    hoistingExam2();
+
+
+
+    var value3 = 100;
+    function hoistingExam3(){
+        console.log(value3);
+        var value3 = 10;
+        console.log(value3);
+    }
+    hoistingExam3();
+
+
+    // 함수 선언문
+    hoistingExam4();
+    function hoistingExam4(){
+        var hoisting_val = 10;
+        console.log("hoisting_val = " + hoisting_val);
+    }
+
+    // 함수 표현식
+    hoistingExam5();    // Error
+    var hoistingExam5 = function(){
+        var hoisting_val = 10;
+        console.log("hoisting_val = " + hoisting_val);
+    }
+
+    // Function 생성자
+    hoistingExam6();    // Error
+    var hoistingExam6 = new Function("", "return console.log('Ya-ho!!');");
+
+
+
+
+</script>
+</body>
+</html>

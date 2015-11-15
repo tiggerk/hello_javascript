@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h3> this의 값은 어떻게 정해지는가 </h3>
+<ul>
+    <li> this의 값은 함수가 호출될 때의 컨텍스트에 따라 달라진다. </li>
+</ul>
+
+<script>
+
+    var foo = 'foo';
+    var myObject = {foo: 'I am myObject.foo'};
+
+    var sayFoo = function() {
+        console.log(this['foo']);
+    };
+
+
+    // sayFoo 함수를 myObject의 sayFoo 속성으로 추가한다.
+    myObject.sayFoo = sayFoo;
+
+    myObject.sayFoo();  // I am myObject.foo
+    sayFoo();   // foo
+
+</script>
+</body>
+</html>

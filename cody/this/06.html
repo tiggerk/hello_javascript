@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h3> 사용자 정의 생성자 함수 내에서 this 키워드 사용하기 </h3>
+<ul>
+    <li> new 키워드를 사용해 함수를 실행할 때 생성자 함수 내에 코딩된 this의 값은 생성자의 인스턴스를 가리킨다. </li>
+</ul>
+
+<script>
+
+    var Person = function(name) {
+        this.name = name || 'john doe';     // this는 만들어질 인스턴스를 참조한다.
+    }
+
+    var cody = new Person('Cody Lindley');  // Person 생성자를 사용해 인스턴스를 만든다.
+
+    console.log(cody.name);     // Cody Lindsley
+
+
+
+    var cody2 = Person('Cody Lindley2');        // 여기서는 new 를 사용하지 않았다.
+
+    // cody2는 undefined이다. name 값은 실제로는 window.name에 설정되어 있다.
+    // console.log(cody2.name);
+
+    console.log(window.name);   // Cody Lindley2
+
+
+
+</script>
+</body>
+</html>

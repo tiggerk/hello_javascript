@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript</title>
+</head>
+<body>
+실행 컨텍스트 생성 과정
+
+<script>
+
+    function execute(param1, param2) {
+        var a = 1, b = 2;
+        function func() {
+            return a + b;
+        }
+        return param1 + param2 + func();
+    }
+
+    console.log(execute(3, 4));
+
+</script>
+</body>
+</html>

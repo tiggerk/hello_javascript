@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<h3> 익명 함수(anonymous function) </h3>
+<ul>
+    <li> 대부분 다른 함수에 매개변수로서 전달되는 경우가 많다. </li>
+</ul>
+
+<body>
+<script>
+
+    // function(){ console.log('hi'); };   // 익명함수지만 실행하진 않았다. 에러났다.
+    // 우리가 전달할 익명 함수를 실행할 함수를 만든다.
+    var sayHi = function(f){
+        f();    // 익명 함수를 실행한다.
+    }
+
+    // 익명 함수를 매개변수로서 전달한다.
+    sayHi(function(){console.log('hi');});  // hi
+
+</script>
+</body>
+</html>

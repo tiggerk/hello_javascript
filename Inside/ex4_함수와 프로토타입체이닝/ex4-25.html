@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript</title>
+</head>
+<body>
+함수를 호출할 때 this 바인딩을 보여주는 예제 코드
+
+<script>
+
+    var test = 'This is test';
+    console.log(window.test);
+
+    // sayFoo() 함수
+    var sayFoo = function () {
+        console.log(this.test);
+    };
+
+    sayFoo();
+
+</script>
+</body>
+</html>

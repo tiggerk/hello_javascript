@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<h3> 함수에 함수 전달하기 / 함수에서 함수 반환하기 </h3>
+<ul>
+    <li> 함수는 값이기도 하므로 다른 종류의 값과 마찬가지로 함수에 전달할 수 있다. </li>
+</ul>
+
+<body>
+<script>
+
+    // 함수에 함수를 전달하거나 함수에서 함수를 반환할 수 있다.
+    var foo = function(f) {
+        return f;
+    }
+
+    var bar = foo(function() { console.log('Hi');});
+
+    bar();  // Hi
+
+</script>
+</body>
+</html>

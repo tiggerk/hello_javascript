@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+Function() 객체 사용
+
+<body>
+<script>
+
+    var addNumbersA = new Function('num1', 'num2', 'return num1 + num2');
+
+    console.log(addNumbersA(2, 2)); // 4가 기록된다.
+
+    // 리터럴 방식으로도 작성할 수 있다. 이 방식이 더 많이 사용된다.
+    var addNumbersB = function(num1, num2) { return num1 + num2; };
+
+    console.log(addNumbersB(2, 2));
+
+</script>
+</body>
+</html>

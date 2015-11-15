@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript</title>
+</head>
+<body>
+함수의 캡슐화
+
+<script>
+
+    // 단점 -> buffAr이 전역 변수로서 외부에 노출되어 있당....
+    var buffAr = [
+        'I am ',
+        '',
+        '. I live in ',
+        '',
+        '. I\'am ',
+        '',
+        ' years old.',
+    ];
+
+    function getCompletedStr(name, city, age) {
+        buffAr[1] = name;
+        buffAr[3] = city;
+        buffAr[5] = age;
+
+        return buffAr.join('');
+    }
+
+    var str = getCompletedStr('zzoon', 'seoul', 16);
+    console.log(str);
+
+</script>
+</body>
+</html>

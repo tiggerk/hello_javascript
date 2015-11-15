@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+<h3> 스코프(scope) </h3>
+<ul>
+    <li> 자바스크립트에서 스코프는 코드가 실행되는 컨텍스트이다. </li>
+    <li> 전역 스코프(global scope), 지역 스코프(local scope, "함수 스코프"), eval 스코프 </li>
+</ul>
+
+<script>
+
+    var foo = 0;    // 전역 스코프
+    console.log(foo);   // 0이 기록된다.
+
+    var myFunction = function() {
+        var foo = 1;    // 지역 스코프
+        console.log(foo);   // 1
+
+        var myNestedFunction = function() {
+            var foo = 2;    // 지역 스코프
+            console.log(foo);   // 2
+        }();
+    }();
+
+    eval('var foo = 3; console.log(foo);'); // eval() 스코프
+
+</script>
+</body>
+</html>

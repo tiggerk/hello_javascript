@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript</title>
+</head>
+<body>
+루프 안에서 클로저를 활용할 때는 주의하자
+
+<script>
+    var callback = function(i) {
+        return function() {
+            console.log(i);
+        }
+    };
+
+//    function countSeconds(howMany) {
+//        for (var i = 1; i <= howMany; i++) {
+//            setTimeout(callback(i), i * 1000);
+//        }
+//     }
+
+
+
+//    countSeconds(3);
+
+
+    var a = 0;
+
+    setTimeout(function() { console.log(a); }, 1000);
+
+    a = 100;
+
+
+
+
+    var userIds = [1, 5, 60];
+    for (var i = 0; i < userIds.length; i++) {
+
+        console.log(i);
+
+        (function(i) {
+            $.get(
+
+                    '/users/'
+
+                    +
+
+                    userIds[i],
+
+                    function(userData) {
+                        console.log(i, userData.name);
+                    }
+
+            );
+        })(i);
+
+
+
+
+
+
+    }
+
+
+</script>
+</body>
+</html>

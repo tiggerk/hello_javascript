@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<h3> 자기 호출 익명 함수 </h3>
+<ul>
+    <li> 스스로 호출되는 익명 함수 선언문 </li>
+</ul>
+
+<body>
+<script>
+
+    // 실제로 가장 많이 사용되고 볼 수 있는 형태
+    (function(msg) {
+        console.log(msg);
+    })('Hi');
+
+    // 살짝 다르지만 같은 역할을 하는 코드
+    (function(msg) {
+        console.log(msg)
+    }('Hi'));
+
+    // 가장 코드를 적게 쓸 수 있는 방식
+    !function sayHi(msg) { console.log(msg); }('Hi');
+
+    // 참고로 이 방식은 동작하지 않는다.
+    // function sayHi() { console.log('hi'); }();   // Error
+
+</script>
+</body>
+</html>

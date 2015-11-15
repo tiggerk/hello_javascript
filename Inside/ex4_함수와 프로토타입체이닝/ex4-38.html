@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript</title>
+</head>
+<body>
+객체 리터럴 방식에서의 프로토타입 체이닝
+
+<script>
+
+    var myObject = {
+        name : 'foo',
+        sayName : function () {
+            console.log('My Name is ' + this.name);
+        }
+    };
+
+    myObject.sayName();
+    console.log(myObject.hasOwnProperty('name'));
+    console.log(myObject.hasOwnProperty('nickName'));
+    myObject.sayNickName();
+
+</script>
+</body>
+</html>

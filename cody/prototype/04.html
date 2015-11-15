@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+<h3> 생성자 함수를 통해 만든 인스턴스는 생성자 함수의 prototype 속성과 연결되어 있다. </h3>
+<ul>
+    <li> . </li>
+</ul>
+
+<script>
+
+    // 이 코드는 __proto__ 를 사용할 수 있는 브라우저에서만 동작한다.
+
+    Array.prototype.foo = 'foo';    // 이제 Array()의 인스턴스는 모두 foo 속성을 상속받는다.
+
+    var myArray = new Array();
+
+    console.log(myArray.__proto__.foo); // myArray.__proto__ == Array.prototype이므로 foo가 기록된다.
+
+    // *.constructor.prototype을 사용하면 조금 번잡하지만 foo 속성을 구할 수 있다.
+    console.log(myArray.constructor.prototype.foo); // foo
+
+    // 물론 체인을 사용해도 된다.
+    console.log(myArray.foo);   // foo
+    // 프로토타입 체인을 사용한 Array.prototype.foo 검색
+
+</script>
+</body>
+</html>

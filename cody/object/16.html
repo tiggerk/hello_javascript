@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="UTF-8">
+</head>
+<body>
+String() 생성자 함수와 String.prototype을 수정
+
+<script>
+
+    // augmentedProperties 속성을 추가해 내장 String 생성자 함수를 확장한다.
+    String.augmentedProperties = [];
+
+    if (!String.prototype.trimIT) { // prototype 객체에 trimIT() 함수가 없으면 추가한다.
+        String.prototype.trimIT = function() {
+            return this.replace(/^\s+|\s+$/g, '');
+        }
+
+        // 이제 augmentedProperties 배열에 trimIT 문자열을 추가한다.
+        String.augmentedProperties.push('trimIT');
+    }
+
+    var myString = ' trim me ';
+    console.log(myString.trimIT());
+    // 새로 만든 trimIT 문자열 메서드를 실행 -> 'trim me'가 기록된다.
+
+
+    console.log(String.augmentedProperties.join());     // 'trimIT'가 기록된다.
+
+</script>
+</body>
+</html>

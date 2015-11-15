@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<h3> 함수는 중첩될 수 있다 </h3>
+<ul>
+    <li> 함수를 다른 함수 안에 중첩해서 정의할 수 있으며 중첩 단계에 제한은 없다. </li>
+</ul>
+
+<body>
+<script>
+
+    var foo = function() {
+        var bar = function() {
+            var goo = function() {
+                console.log(this);  // window 머리 객체의 참조가 기록된다.
+            }();
+        }();
+    }();
+
+</script>
+</body>
+</html>

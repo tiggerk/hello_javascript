@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h3> 중첩된 함수 문제는 스코프 체인을 사용해 우회하라. </h3>
+<ul>
+    <li> 스코프 체인을 사용해 부모 함수의 this에 대한 참조를 저장해두면 this 값이 사라지는 것을 막을 수 있다. </li>
+    <li> that 변수와 이 변수의 스코프를 사용해 함수 컨텍스트가 변하는 와중에도 this 값을 유지하고 있다. </li>
+</ul>
+
+<script>
+
+    var myObject = {
+        myProperty : 'I can see the light',
+        myMethod : function(){
+            var that = this;    // this에 대한 참조(=myObject)를 myMethod의 스코프에 저장한다.
+            var helperFunction = function() {   // 자식 함수
+                // that(=this)의 스코프 체인을 통해 'I can see the light'을 기록한다.
+                console.log(that.myProperty);   // I can see the light
+                console.log(this);  // that을 사용하지 않으면 window 객체가 기록된다.
+            }();
+        }
+    }
+
+    myObject.myMethod();    // myMethod를 호출한다.
+
+
+</script>
+</body>
+</html>

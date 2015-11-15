@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+<h3> 자바스크립트에는 블록 스코프가 없다. </h3>
+<ul>
+    <li> 조건문과 반복문은 스코프를 만들지 않으므로 조건문과 반복문 사이에도 변수를 서로 재정의할 수 있다. </li>
+</ul>
+
+<script>
+
+    var foo = 1;
+    console.log(foo);  // 1
+
+    if (true) {
+        foo = 2;
+        for(var i = 3; i <= 5; i++) {
+            foo = i;    // foo = 순서대로 3, 4, 5
+            console.log(foo);   // 순서대로 3, 4, 5가 각각 기록된다.
+        }
+    }
+
+
+</script>
+</body>
+</html>

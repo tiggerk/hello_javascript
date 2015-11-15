@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h3> call() 또는 apply()를 사용한 this 값 설정 </h3>
+<ul>
+    <li> this의 값은 함수가 호출된 컨텍스트에 따라 보통 달라진다. (new키워드는 예외.)</li>
+    <li> apply()나 call()을 사용해 함수를 호출할 때 this가 참조할 객체를 정해주는 식으로 this의 값을 조작할 수 있다. </li>
+</ul>
+
+<script>
+
+    var myObject = {};
+
+    var myFunction = function(param1, param2) {
+        // call()을 사용해 함수를 호출하며 'this'가 myObject를 가리키도록 설정한다.
+        this.foo = param1;
+        this.bar = param2;
+        console.log(this);  // Object {foo: "foo", bar: "bar"}
+    };
+
+    myFunction.call(myObject, 'foo', 'bar');    // 함수를 호출하며 myObject를 this로 설정한다.
+
+    console.log(myObject);  // Object {foo: "foo", bar: "bar"}
+
+
+
+
+
+    var myObject2 = {};
+
+    var myFunction2 = function(param1, param2) {
+        // apply()를 사용해 함수를 호출하며 'this'가 myObject2를 가리키도록 설정한다.
+        this.foo = param1;
+        this.bar = param2;
+        console.log(this);  // Object {foo: "foo2", bar: "bar2"}
+    };
+
+    myFunction2.apply(myObject2, ['foo2', 'bar2']);   // 함수를 호출하며 this를 설정한다.
+
+    console.log(myObject2); // Object {foo: "foo2", bar: "bar2"}
+
+</script>
+</body>
+</html>

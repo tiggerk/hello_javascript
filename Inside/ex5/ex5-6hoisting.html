@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript</title>
+</head>
+<body>
+호이스팅
+
+<script>
+
+    //foo();
+    bar();
+
+    var foo = function() {
+        console.log("foo and x = " + x);
+    };
+
+    function bar() {
+        console.log("bar and x = " + x);
+    }
+
+    var x = 1;
+    function C() {
+        var x = 3;
+        console.log(x);
+    }
+    C();
+</script>
+</body>
+</html>

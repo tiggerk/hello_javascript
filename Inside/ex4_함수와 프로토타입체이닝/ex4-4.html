@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript</title>
+</head>
+<body>
+함수 표현식 방식으로 구현한 팩토리얼 함수
+
+<script>
+
+    var factorialVar = function factorial(n) {
+        if (n <= 1) {
+            return 1;
+        }
+        return n * factorial(n-1);
+    };
+
+    console.log(factorialVar(3));
+    console.log(factorial(3));  // Error!! Uncaught ReferenceError: factorial is not defined
+
+</script>
+</body>
+</html>

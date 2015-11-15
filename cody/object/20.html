@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="UTF-8">
+</head>
+<body>
+점 표기법, 각괄호 표기법을 사용한 객체 속성 접근
+
+<script>
+
+    // cody Object() 객체를 만든다.
+    var cody = new Object();
+
+    // 속성을 설정한다.
+    cody.living = true;
+    cody.age = 33;
+    cody.gender = 'male';
+    cody.getGender = function() {return cody.gender;};
+
+    // 속성의 값을 가져온다.
+    console.log(cody.living, cody.age, cody.gender, cody.getGender());
+    // true 33 "male" "male"
+
+    // 속성을 갱신한다. 문법은 설정할 때와 똑같다.
+    cody.living = false;
+    cody.age = 99;
+    cody.gender = 'female';
+    cody.getGender = function() {return 'Gender = ' + cody.gender;};
+
+    console.log(cody);
+
+    var foobarObject = {foobar: 'foobar는 의미 없는 코드를 표현할 때 사용합니다.'};
+
+    var string1 = 'foo';
+    var string2 = 'bar';
+
+    console.log(foobarObject[string1 + string2]);
+    // foobar는 의미 없는 코드를 표현할 때 사용합니다.
+
+
+    var myObject = {'123':'zero', 'class':'foo'};
+
+    console.log(myObject[123], myObject['class']);
+
+    //console.log(myObject.0, myObject.class);    // Error
+
+</script>
+</body>
+</html>

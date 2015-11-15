@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript</title>
+</head>
+<body>
+함수 객체와 프로토타입 객체와의 관계를 보여주는 코드
+
+<script>
+
+
+    function foo(x) {
+        this.x = x;
+    };
+
+    var A = new foo('hello world');
+    console.log(A.x);
+
+    //console.log(A.prototype.x);
+
+
+
+
+
+    var B = function () {
+        this.x = function () {
+            console.log('hello');
+        };
+    };
+
+    B.x = function() {
+        console.log('world');
+    };
+
+    var C = new B();
+    var D = new B();
+
+    C.x();
+    D.x();
+
+
+
+
+
+
+    var E = function () {};
+
+    E.x = function() {
+        console.log('helloE.x');
+    };
+
+    E.prototype.x = function() {
+        console.log('worldE.prototype.x');
+    };
+
+    var F = new E();
+    var G = new E();
+
+    F.x();
+    G.x();
+
+
+
+</script>
+</body>
+</html>

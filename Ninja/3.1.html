@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Ninja JavaScript</title>
+</head>
+<body>
+함수 선언과 관련한 내용들을 증명하기
+
+<script>
+
+    function isNimble() { return true; }
+
+    console.assert(typeof window.isNimble === "function", "isNimble() 정의됨.");
+    console.log(typeof window.isNimble);
+    console.assert(isNimble.name === "isNimble", "isNimble()에는 이름이 있음.");
+    console.log(isNimble.name);
+
+    var canFly = function(){ return true; };
+
+    console.assert(typeof window.canFly === "function", "canFly() 정의");
+    console.assert(canFly.name === "", "canFly()에는 이름이 없음.");
+
+    window.isDeadly = function(){ return true; };
+
+    console.assert(typeof window.isDeadly === "function", "isDeadly() 정의");
+
+    function outer() {
+        console.assert(typeof inner === "function", "inner 함수가 정의된 위치 앞쪽에서 inner()는 유효함.");
+        function inner () {}
+        console.assert (typeof inner === "function", "inner 함수가 정의된 위치 뒤쪽에서 inner()는 유효함.")
+        console.assert(window.inner === undefined, "전역 유효 범위에 inner()는 없음.");
+    }
+
+    outer();
+    console.assert(window.inner === undefined, "inner()는 전역 유효 범위에 없음.");
+
+    window.wieldsSword = function swingsSword() { return true };
+
+    console.assert(window.wieldsSword.name === 'swingsSword', "wieldSword의 실제 이름은 swingsSword이다.");
+
+</script>
+</body>
+</html>

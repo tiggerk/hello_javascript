@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+<h3> 상속 체인 만들기 </h3>
+<ul>
+    <li> prototype 속성에 부모 객체의 인스턴스를 할당하고 나면 부모 객체 생성자의 prototype과 상속받는 객체 사이에는 연결이 생긴다. </li>
+    <li> 연결(즉, __proto__)</li>
+</ul>
+
+<script>
+
+    var Person = function(){this.bar = 'bar'};
+    Person.prototype.foo = 'foo';
+
+    var Chef = function(){this.goo = 'goo'};
+    Chef.prototype = new Person();
+    var cody = new Chef();
+
+    console.log(cody.foo);  // foo
+    console.log(cody.goo);  // goo
+    console.log(cody.bar);  // bar
+
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript</title>
+</head>
+<body>
+강제로 인스턴스 생성하기
+
+<script>
+
+    function A(arg) {
+        if (!(this instanceof A))
+            return new A(arg);
+        this.value = arg ? arg : 0;
+    }
+
+    var a = new A(100);
+    var b = A(10);
+
+    console.log(a.value);
+    console.log(b.value);
+
+
+</script>
+</body>
+</html>

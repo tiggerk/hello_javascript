@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+<h3> 모든 Function() 인스턴스에는 prototype 속성이 있다 </h3>
+<ul>
+    <li> 함수 인스턴스를 만들면 인스턴스에는 항상 prototype 속성이 추가된다. </li>
+    <li> 이때, prototype 속성은 그 자체로는 빈 객체와 같다. </li>
+</ul>
+
+<script>
+
+    var myFunction = function() {};
+    console.log(myFunction.prototype);  // myFunction {}
+    console.log(typeof myFunction.prototype);   // object
+
+
+</script>
+</body>
+</html>

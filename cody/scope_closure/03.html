@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+<h3> 함수 내에서 변수 선언 시 var를 사용해 스코프 문제 피하기 </h3>
+<ul>
+    <li> var 키워드 없이 변수를 선언하면 지역 스코프가 아닌 전역 스코프에 변수가 추가된다. </li>
+</ul>
+
+<script>
+
+    var foo = function() {
+        var boo = function() {
+            bar = 2;    // var를 사용하지 않았으므로 bar는 전역 스코프 window.bar로서 정의된다.
+        }();
+    }();
+
+    console.log(bar);   // bar는 전역 스코프에 있으므로 2가 기록된다.
+
+    // 반대로...
+
+    var foo = function() {
+        var boo = function() {
+            var doo = 2;
+        }();
+    }();
+
+    console.log(doo);   // doo는 boo 함수 스코프 내에만 있으므로 에러가 발생.
+
+
+</script>
+</body>
+</html>

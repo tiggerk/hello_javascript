@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h3> this의 사용 </h3>
+<ul>
+    <li> 함수를 만들 떄는 함수를 실행하는 객체와 연결되는 this라는 키워드도 같이(자동으로) 만들어진다. </li>
+    <li> this는 함수의 스코프 안에서 사용할 수 있다. </li>
+    <li> 함수를 속성 또는 메소드로 포함하고 있는 객체를 참조한다. </li>
+</ul>
+
+<script>
+
+    var cody = {
+        living : true,
+        age : 23,
+        gender : 'male',
+        getGender : function(){ return cody.gender; }
+    };
+
+    console.log(cody.getGender());  // male
+
+    cody.getGender = function(){ return this.gender; };
+
+    01.html
+
+</script>
+</body>
+</html>

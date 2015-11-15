@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+arguments.callee 속성 <br>
+callee - 현재 실행 중인 함수의 참조 <br>
+
+<body>
+<script>
+
+    var foo = function foo() {
+        console.log(arguments.callee);  // foo()가 기록된다.
+        // callee는 foo 함수를 재귀적으로 호출할 때도 사용할 수 있다. (예: arguments.callee())
+    }();
+
+
+
+
+    function factorial(n) {
+        if (n <= 0)
+            return 1;
+        else
+            return n * arguments.callee(n - 1)
+    }
+
+    document.write(factorial(4));
+
+</script>
+</body>
+</html>

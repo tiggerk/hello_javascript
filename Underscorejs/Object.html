@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="../../underscore.js"></script>
+</head>
+<body>
+<h1>hi</h1>
+<h1>bye</h1>
+<script>
+
+    function keys (object) {
+
+    }
+
+    keys({one: 1, two: 2, three: 3});
+    // => ["one", "two", "three"]
+
+    keys( ['aa', 'bb', 'cc'] );
+    // => ["0", "1", "2"]
+
+
+    function allKeys(object) {
+
+    }
+    function Stooge(name) { this.name = name; }
+    Stooge.prototype.silly = true;
+
+    allKeys(new Stooge('Moe'));
+    // => ["name", "silly"]
+
+    keys(new Stooge('Moe'));
+    // => ["name"]
+
+
+
+    function values(obejct) {
+
+    }
+    values({one: 1, two: 2, three: 3});
+    // => [1, 2, 3]
+
+    values([1, 2, 3, 4, 5]);
+    // => [1, 2, 3, 4, 5]
+
+
+    function mapObject(object, iteratee) {
+
+    }
+    mapObject({start: 5, end: 12}, function(val, key){ return val + 5; });
+    // => {start: 10, end: 17}
+    mapObject({start: 5, end: 12}, function(val, key){ return key + '!!'; });
+    // => {start: "start!!", end: "end!!"}
+
+
+    function pairs(object) {
+
+    }
+    pairs({one: 1,two: 2, three: 3});
+    // => [["one", 1], ["two", 2], ["three", 3]]
+
+
+    function invert(object) {
+
+    }
+    invert({Moe: 'Moses', Larry: 'Louis', Curly: 'Jerome'});
+    // => {Moses: "Moe", Louis: "Larry", Jerome: "Curly"}
+    invert({1: 'Moses', 2: 'Louis', 3: 'Jerome'});
+    // => {Moses: "1", Louis: "2", Jerome: "3"}
+
+
+
+    function create(prototype, props) {
+
+    }
+    var moe = create(Stooge.prototype, {name: 'Moe'});
+    // moe의 __proto__는 Stooge...
+    // => {name: "Moe", silly: true}
+    var mo = _.object([['name', 'Mo']]);
+    // mo의 __proto__는 Object...
+    // => {name: "Mo"}
+
+
+
+    function functions(object) {
+
+    }
+    functions(_);
+    // => ["all", "any", "bind", "bindAll", "clone", "compact", "compose" ...
+
+    var func = {name: 'funcName', age: 10, haha: function(){alert('hahahaha');}};
+    functions(func);
+    // => ["haha"]
+
+
+    function findKey(object, predicate) {
+
+    }
+    var fi = {fi: 'nd', ke: 'y'};
+    findKey(fi, function(){ return true; });
+    // => "fi"
+    findKey(fi, function(){ return false; });
+    // => undefined
+    findKey(moe, function(){return 1;});
+    // => "name"
+
+
+
+    function extend(destination, sources) {
+
+    }
+    extend({name: 'moe'}, {age: 50});
+    // => {name: "moe", age: 50}
+    extend({name: 'moe'}, {age: 50}, {gender: 'male', live: false});
+    // => {name: "moe", age: 50, gender: "male", live: false}
+    extend({name: 'moe'}, {name: 'aaa'}, {gender: 'male', live: false});
+    // => {name: "aaa", gender: "male", live: false}
+
+
+
+    function extendOwn(destination, sources) {
+
+    }
+
+
+    function pick(object, keys) {
+
+    }
+
+    pick({name: 'moe', age: 50, userid: 'moe1'}, 'name', 'age');
+    // => {name: "moe", age: 50}
+    pick({name: 'moe', age: 50, userid: 'moe1'}, function(value, key, object) {
+        return _.isNumber(value);
+    });
+    // => {age: 50}
+    pick({name: 'moe', age: 50, userid: 'moe1'}, 'n'+'a'+'m'+'e');
+    // => {name: "moe"}
+
+
+
+    function omit(object, keys) {
+
+    }
+
+    omit({name: 'moe', age: 50, userid: 'moe1'}, 'userid');
+    // => {name: "moe", age: 50}
+
+    omit({name: 'moe', age: 50, userid: 'moe1'}, function(value, key, object) {
+        return _.isNumber(value);
+    });
+    // => {name: "moe", userid: "moe1"}
+
+
+
+
+    function defaults(object, defaults) {
+
+    }
+    var iceCream = {flavor: "chocolate"};
+    defaults(iceCream, {flavor: "vanilla", sprinkles: "lots"});
+    // => {flavor: "chocolate", sprinkles: "lots"}
+    defaults(iceCream, {color: "red", sprinkles: "lotsssssss"});
+    // => {flavor: "chocolate", sprinkles: "lots", color: "red"}
+
+
+
+    function clone(object) {
+
+    }
+    clone({name: 'moe'});
+    // => {name: 'moe'}
+    clone(iceCream);
+    // => {flavor: "chocolate", sprinkles: "lots", color: "red"}
+
+
+
+    function tap(object, interceptor) {
+        //interceptor(object);
+        return object;
+    }
+
+    tap();
+
+
+
+    function has(object, key) {
+
+    }
+    has({a:1, b:2, c:3}, 'b');
+    // => true
+    has({a:1, bb:2, c:3}, 'b');
+    // => false
+
+
+
+    function property(object) {
+
+    }
+    var stooge = {name: 'moe'};
+    'moe' === _.property('name')(stooge);
+    // => true
+    _.property('name')(stooge);
+    // => "moe"
+
+
+
+    function propertyOf(object) {
+
+    }
+    _.propertyOf(stooge)('name');
+    // => 'moe'
+
+
+
+
+    function matcher(attrs) {
+
+    }
+
+
+
+
+    function isEqual(object, other) {
+
+    }
+    var stooge = {name: 'moe', luckyNumber: [13, 27, 34]};
+    var clone = {name: 'moe', luckyNumber: [13, 27, 34]};
+    stooge == clone;
+    // => false
+    isEqual(stooge, clone);
+    // => true
+
+
+
+    function isMatch(object, properties) {
+
+    }
+    var stooge = {name: 'moe', age: 32};
+    isMatch(stooge, {age: 32});
+    // => true
+
+
+
+
+    function isEmpty(object) {
+
+    }
+    isEmpty([1, 2, 3]);
+    // => false
+    isEmpty({});
+    // => true
+    isEmpty([]);
+    // => true
+
+
+
+
+    function isElement(object) {
+
+    }
+    isElement(jQuery('h1')[0]);
+    // => true
+
+
+
+
+    function isArray(object) {
+
+    }
+    (function(){ return _.isArray(arguments); })();
+    // => false
+    isArray([1, 2, 3]);
+    // => true
+
+
+
+
+    function isObject(value) {
+
+    }
+    _.isObject({});
+    // => true
+    _.isObject([]);
+    // => true
+    _.isObject(1);
+    // => false
+
+
+
+
+
+    function isArguments(object) {
+
+    }
+    (function(){ return _.isArguments(arguments); })(1, 2, 3);
+    // => true
+    _.isArguments([1, 2, 3]);
+    // => false
+
+
+
+
+    function isFunction(object) {
+
+    }
+    _.isFunction(alert);
+    // => true
+    _.isFunction(12);
+    // => false
+
+
+
+    function isString(object) {
+
+    }
+    isString('moe');
+    // => true
+    isString(1);
+    // => false
+
+
+
+    function isNumber(object) {
+
+    }
+    isNumber(8.4 * 5);
+    // => true
+    isNumber('10');
+    // => false
+    isNumber(Math.floor(13.44));
+    // => true
+
+
+
+    function isFinite(object) {
+
+    }
+    _.isFinite(-101);
+    // => true
+    _.isFinite(1.7976931348623157E+10308 + -1.7976931348623157E+10308);
+    // => false
+
+
+
+    function isBoolean(object) {
+
+    }
+    _.isBoolean(null);
+    // => false
+    _.isBoolean(12);
+    // => false
+    _.isBoolean(1);
+    // => false
+    _.isBoolean('1');
+    // => false
+    _.isBoolean(true);
+    // => true
+
+
+
+
+    function isDate(object) {
+
+    }
+    isDate(new Date());
+    // => true
+    isDate(20150417);
+    // => false
+
+
+
+
+    function isRegExp(object){
+
+    }
+    isRegExp(/moe/);
+    // => true
+
+
+
+
+    function isError(object) {
+
+    }
+
+    try {
+        throw new TypeError("Example");
+    } catch (o_O) {
+        _.isError(o_O)
+    }
+    // => true
+
+    _.isError(new TypeError("Example"));
+    // => true
+    _.isError("Example");
+    // => false
+
+
+
+
+    /*function isNaN(object) {
+
+    }*/
+    _.isNaN(NaN);
+    // => true
+    _.isNaN(undefined);
+    // => false
+    isNaN(undefined);
+    // => true
+    _.isNaN(1);
+    // => false
+    _.isNaN({});
+    // => false
+    _.isNaN(null);
+    // => false
+    _.isNaN(0);
+    // => false
+    _.isNaN('NaN');
+    // => false
+    _.isNaN(1 * 'a');
+    // => true
+
+
+
+
+
+    function isNull(object) {
+
+    }
+    _.isNull(null);
+    // => true
+    _.isNull(undefined);
+    // => false
+    _.isNull();
+    // => false
+
+
+
+
+
+    function isUndefined(value) {
+
+    }
+    _.isUndefined(window.missingVariable);
+    // => true
+    _.isUndefined(undefined);
+    // => true
+    _.isUndefined();
+    // => true
+
+
+
+
+
+</script>
+</body>
+<body></body>
+</html>

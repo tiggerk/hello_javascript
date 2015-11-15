@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+함수 완료 전에 반환하기(실행 종료) <br>
+return 키워드를 사용하면 함수 실행 중 언제든 함수 실행을 취소할 수 있다.<br>
+
+<body>
+<script>
+
+    var add = function(x, y) {
+        // 매개변수가 숫자가 아니면 에러를 반환한다.
+        if (typeof x !== 'number' || typeof y !== 'number') { return '숫자를 전달하세요.'; }
+        return x + y;
+    }
+
+    console.log(add(3,3));
+    console.log(add('2', '2'));
+
+</script>
+</body>
+</html>

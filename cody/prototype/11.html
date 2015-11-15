@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+<h3> 사용자 정의 생성자도 네이티브 생성자처럼 프로토타입을 상속할 수 있다 </h3>
+<ul>
+    <li> 자바스크립트의 상속 패턴을 흉내내는 코드 </li>
+</ul>
+
+<script>
+
+    var Person = function() {};
+
+    // 모든 Person 인스턴스는 legs, arms, countLimbs 속성을 상속한다.
+    Person.prototype.legs = 2;
+    Person.prototype.arms = 2;
+    Person.prototype.countLimbs = function() { return this.legs + this.arms; };
+
+
+    var chuck = new Person();
+
+    console.log(chuck.countLimbs());    // 4
+
+</script>
+</body>
+</html>

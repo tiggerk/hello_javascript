@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+함수 인스턴스의 length 속성과 arguments.length
+
+<body>
+<script>
+
+    var myFunction = function(z, s, d) {
+        return arguments.length;
+    };
+
+    console.log(myFunction());  // 0
+
+
+
+
+    var myFunction2 = function(z, s, d, e, r, m, q) {
+        return myFunction2.length;
+    };
+
+    console.log(myFunction2()); // 7
+
+
+</script>
+</body>
+</html>

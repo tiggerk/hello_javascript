@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+<h3> 스코프는 함수를 정의할 때 결정된다. </h3>
+<ul>
+    <li> 스코프 체인은 함수를 실행한 위치가 아닌 정의한 위치에 의해 결정된다. </li>
+    <li> 문법적 스코핑(lexical scoping)이라고도 한다. </li>
+</ul>
+
+<script>
+
+    var parentFunction = function() {
+        var foo = 'foo';
+        return function() { // 반환할 익명 함수
+            console.log(foo);   // foo
+        }
+    }
+
+    // nestedFunction은 parentFunction 함수에서 반환된 익명 함수를 참조한다.
+    var nestedFunction = parentFunction();
+
+    nestedFunction();   // 반환된 함수는 스코프 체인을 통해 foo에 접근할 수 있으므로 여기선 foo가 기록된다.
+
+</script>
+</body>
+</html>

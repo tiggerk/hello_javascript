@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript</title>
+</head>
+<body>
+함수를 다른 함수의 리턴값으로 활용한 코드
+
+<script>
+
+    // 함수 리턴하는 foo() 함수 정의
+    var foo = function() {
+        return function () {
+            console.log('this function is the return value.');
+        };
+    };
+
+    var bar = foo();
+    bar();
+
+</script>
+</body>
+</html>

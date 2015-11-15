@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+<h3> 프로토타입에서 상속한 속성은 가장 최근의 값을 사용한다 </h3>
+<ul>
+    <li> 인스턴스가 프로토타입에서 상속한 속성은 항상 가장 최근의 값을 사용한다. </li>
+</ul>
+
+<script>
+
+    var Foo = function Foo(){};
+
+    Foo.prototype.x = 1;
+
+    var FooInstance = new Foo();
+
+    console.log(FooInstance.x);   // 1
+
+    Foo.prototype.x = 2;
+
+    console.log(FooInstance.x);   // 2. FooInstance도 갱신되었다.
+
+
+</script>
+</body>
+</html>

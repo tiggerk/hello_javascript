@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h3> 중첨된 함수의 this는 머리 객체를 참조한다. </h3>
+<ul>
+    <li> 중첩된 함수의 this는 함수가 정의된 객체가 아닌 머리객체(브라우저에서는 window 객체)를 참조한다. </li>
+</ul>
+
+<script>
+
+    var myObject = {
+        func1 : function() {
+            console.log(this);  // myObject가 기록된다.
+            var func2 = function() {
+                console.log(this);  // window가 기록되며, 여기서부터는 this의 값이 계속 같다.
+                var func3 = function() {
+                    console.log(this);  // 머리 객체인 window가 기록된다.
+                }();
+            }();
+        }
+    }
+
+    myObject.func1();
+
+
+
+    var foo = {
+        func1:function(bar) {
+            bar();  // foo가 아닌 window가 기록된다.
+            console.log(this);  // 이 곳의 this 키워드는 foo 객체를 참조한다.
+        }
+    }
+
+    foo.func1(function(){console.log(this)});
+
+
+</script>
+</body>
+</html>

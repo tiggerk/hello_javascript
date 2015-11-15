@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="../jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="../../underscore.js"></script>
+</head>
+<body>
+<button id="underscore_button">aaaaz</button>
+<button id="under">bbbbb</button>
+<script>
+
+	//    function bind(func, object) {
+	//
+	//    }
+	//    var func = function(greeting){ return greeting + ': ' + this.name };
+	//    func = _.bind(func, {name: 'moe'}, 'hi');
+	//    console.log(func());
+	// => "hi: moe"
+
+
+	//    var func1 = function(greeting){ return greeting + ': ' + this.name };
+	//    console.log(func1.apply({name: 'moe1'}, ['hi1']));
+
+
+	//    var buttonView = {
+	//        label   : 'underscore',
+	//        onClick : function(){ alert('clicked: ' + this.label); },
+	//        onHover : function(){ console.log('hovering: ' + this.label); }
+	//    };
+	//    _.bindAll(buttonView, 'onClick', 'onHover');
+	//    jQuery('#underscore_button').bind('click', buttonView.onClick);
+	//    jQuery('#underscore_button').bind('mouseover', buttonView.onHover);
+	//    jQuery('#under').bind('mouseover', buttonView.onHover);
+	//
+	//
+	//
+	//
+	//    var subtract = function(a, b) { return b - a; };
+	//    sub5 = _.partial(subtract, 5);
+	//
+	//
+	//    function sum() {
+	//        return this.a + this.b;
+	//    }
+	//
+	function bind(func, context) {
+		return function() {
+			return func.apply(context);
+		}
+	}
+
+	var user = {
+		name: 'indong'
+	};
+
+
+	$('#under').click(bind(function() {
+		console.log(this.name);
+	}, user));
+
+	//    var button = document.getElementsByTagName('button')[1];
+
+	//    button.onclick = function() {
+	//        console.log(this == button);
+	//    }
+
+
+
+	var fibonacci = _.memoize(function(n) {
+		return n < 2 ? n : fibonacci(n - 1) + fibonacci(n - 2);
+	});
+
+	//    function(key) {
+	//        var cache = {};
+	//        var address = '' + (hasher ? hasher.apply(this, arguments) : key);
+	//        if (!_.has(cache, address)) cache[address] = func.apply(this, arguments);
+	//        return cache[address];
+	//    };
+
+
+	var log = _.bind(console.log, console);
+	_.delay(log, 1000, 'logged later');
+
+	_.defer(function(){ console.log('deferred'); });
+	console.log('before');
+	console.log('before2');
+
+
+
+
+
+	var initialize = _.once(function(){ console.log('once'); });
+	initialize();
+	initialize();
+	initialize();
+
+
+	var renderNotes = _.after(2, function(){console.log('renderNotes')});
+	console.log('1');
+	renderNotes();
+	console.log('2');
+	renderNotes();
+	console.log('3');
+	renderNotes();
+	console.log('4');
+	renderNotes();
+	// 2번쨰부터 이후는 다 실행
+
+
+
+	var beforeCount = 1;
+	var monthlyMeeting = _.before(4, function(){ console.log(beforeCount +'monthlyMeeting'); beforeCount++; });
+	monthlyMeeting();
+	monthlyMeeting();
+	monthlyMeeting();
+	monthlyMeeting();
+	// 4번쨰꺼 전 까지만 실행
+
+
+	var hello = function(name) { return "hello: " + name; };
+	hello = _.wrap(hello, function(func) {
+		return "before, " + func("moe") + ", after";
+	});
+	console.log(hello());
+
+
+	var isFalsy = _.negate(Boolean);
+	_.find([-2, -1, 0, 1, 2], isFalsy);
+	// => 0
+	_.find([-2, -1, null, 0, 1, 2], isFalsy);
+	// => null
+	_.filter([-2, -1, null, 0, 1, 2], isFalsy);
+	// => [null, 0]
+
+
+
+
+	var greet = function(name){ return 'hi: ' + name; };
+	var exclaim = function(statement){ return statement.toUpperCase() + '!'; };
+
+
+
+
+
+
+</script>
+</body>
+</html>

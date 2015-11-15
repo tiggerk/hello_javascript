@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>배열과 객체의 유사점과 차이점</title>
+</head>
+<body>
+배열과 객체의 유사점과 차이점
+
+<script>
+    // colorsArray 배열
+    var colorsArray = ['orange', 'yellow', 'green'];
+    console.log(colorsArray[0]);    // orange
+    console.log(colorsArray[1]);    // yellow
+    console.log(colorsArray[2]);    // green
+
+    // colorsObj 객체
+    var colorsObj = {
+        '0': 'orange',
+        '1': 'yellow',
+        '2': 'green'
+    };
+
+    console.log(colorsObj[0]);  // orange
+    console.log(colorsObj[1]);  // yellow
+    console.log(colorsObj[2]);  // green
+
+    // typeof 연산자 비교
+    console.log(typeof colorsArray);    // object
+    console.log(typeof colorsObj);      // object
+
+    // length 프로퍼티
+    console.log(colorsArray.length);    // 3
+    console.log(colorsObj.length);      // undefined
+
+    // 배열 표준 메서드
+    colorsArray.push('red');
+    //colorsObj.push('red');    //TypeError
+
+    console.log(colorsArray);
+    console.log(colorsArray.length);
+
+    console.dir(colorsArray);
+    console.dir(colorsObj);
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="UTF-8">
+</head>
+<body>
+<script>
+
+    var price1 = 10;
+    var price2 = 10;
+    var price3 = new Number('10');  // new 키워드를 사용했으므로 price3는 복합 객체다.
+    var price4 = price3;
+
+    console.log(price1 === price2); // true
+
+    // price3는 복합 숫자 객체를 포함하고 있으나 price1은 원시값이므로 false가 기록된다.
+    console.log(price1 === price3);
+
+    // 복합 객체는 값이 아닌 참조를 비교하므로 true가 기록된다.
+    console.log(price4 === price3);
+
+    // 원시값을 포함한 price4 변수의 값을 수정하면 어떻게 될까?
+    price4 = 10;
+
+    console.log(price4 === price3); // false
+
+</script>
+</body>
+</html>

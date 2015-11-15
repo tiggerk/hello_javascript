@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<h3> 함수를 호출하는 네 가지 패턴 </h3>
+<ul>
+    <li> 함수로서 </li>
+    <li> 메소드로 </li>
+    <li> 생성자로서 </li>
+    <li> apply() 혹은 call()을 사용해서 </li>
+</ul>
+
+<body>
+<script>
+
+    // 함수 패턴
+    var myFunction = function(){return 'foo'};
+    console.log(myFunction());  // foo
+
+
+    // 메소드 패턴
+    var myObject = {myFunction: function(){return 'bar';}}
+    console.log(myObject.myFunction()); // bar
+
+
+    // 생성자 패턴
+    var Cody = function(){
+        this.living = true;
+        this.age = 33;
+        this.gender = 'male';
+        this.getGender = function() { return this.gender; };
+    }
+    var cody = new Cody();  // Cody 생성자를 통해 호출한다.
+    console.log(cody);  // cody 객체와 속성이 기록된다.
+
+
+    // apply()와 call() 패턴
+    var greet = {
+        runGreet: function() {
+            console.log(this.name, arguments[0], arguments[1]);
+        }
+    }
+
+    var cody = { name: 'cody' };
+    var lisa = { name: 'lisa' };
+
+    // runGreet 함수가 마치 cody 객체의 메소드인 것처럼 호출한다.
+    greet.runGreet.call(cody, 'foo', 'bar');    // cody foo bar
+
+    // runGreet 함수가 마치 lisa 객체의 메소드인 것처럼 호출한다.
+    greet.runGreet.apply(lisa, ['foo', 'bar']); // lisa foo bar
+
+
+    // call()과 apply()의 차이점은 호출할 함수에 매개변수를 전달하는 방식이다.
+
+
+
+</script>
+</body>
+</html>

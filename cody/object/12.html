@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="UTF-8">
+</head>
+<body>
+<script>
+
+    var myString = 'string';
+    var myNumber = 10;
+    var myBoolean = false;  // true 또는 false가 될 수 있지만, 그게 고작이다.
+    var myNull = null;
+    var myUndefined = undefined;
+
+    console.log(myString, myNumber, myBoolean, myNull, myUndefined);
+
+    /* 배열이나 객체와 같은 복합 객체는 여러 원시값으로 구성하라 수 있으므로 이처럼 다양한 값의 복합체가 될 수 있다. */
+
+    var myObject = {
+        myString : 'string',
+        myNumber : 10,
+        myBoolean : false,
+        myNull : null,
+        myUndefined : undefined
+    };
+
+    console.log(myObject);
+
+    var myArray = ['string', 10, false, null, undefined];
+
+    console.log(myArray);
+
+
+</script>
+</body>
+</html>

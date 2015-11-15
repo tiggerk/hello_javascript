@@ -1,0 +1,54 @@
+<html>
+
+<head>
+
+<style>
+html, body {
+    margin: 0;
+    height: 100%;
+}
+.body {
+    height: 100%;
+    overflow: auto;
+    overflow-x: hidden;
+}
+.items {
+    position: relative;
+    height: 4000px;
+}
+.item {
+    position: absolute;
+}
+</style>
+
+</head>
+<body>
+
+<!--<div class="body">-->
+    <!--<div class="items">-->
+        <!--<div class="item"></div>-->
+        <!--...-->
+    <!--</div>-->
+<!--</div>-->
+
+<script>
+
+var items = [100, 20, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60];
+
+function toIndexs(scrollTop, height) {
+    var out = items[0];
+    for(var i = 1, len = items.length; i < len; i++) {
+        if(out > scrollTop) {
+            break;
+        }
+        out += items[]
+    }
+    return [];
+}
+
+toIndexs(120, 200);
+
+</script>
+
+</body>
+</html>

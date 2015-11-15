@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>배열의 프로퍼티 열거</title>
+</head>
+<body>
+배열의 프로퍼티 열거
+
+<script>
+
+    var arr = ['zero', 'one', 'two'];
+    arr.color = 'blue';
+    arr.name = 'number_array';
+    arr[3] = 'red';
+
+
+    for (var prop in arr) {
+        console.log(prop, arr[prop]);
+    }   // 배열요소와 이외의 것들 모두 출력
+
+    console.log('-------------------');
+
+    for (var i = 0; i < arr.length; i++) {
+        console.log(i, arr[i]);
+    }   // 정확히 배열의 요소만을 출력
+
+</script>
+</body>
+</html>

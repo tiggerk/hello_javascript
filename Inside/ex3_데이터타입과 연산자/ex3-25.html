@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>유사 배열 객체의 배열 메서드 호출</title>
+</head>
+<body>
+유사 배열 객체의 배열 메서드 호출
+
+<script>
+
+    var arr = ['bar'];
+    var obj = {
+        name : 'foo',
+        length : 1
+    };
+
+    arr.push('baz');
+    console.log(arr);   // ["bar", "baz"]
+
+    obj.push('baz');    // Error!!
+
+
+</script>
+</body>
+</html>

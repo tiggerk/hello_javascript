@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+<h3> prototype 속성을 새 객체로 대체하면 이전에 만든 인스턴스는 갱신되지 않는다 </h3>
+<ul>
+    <li> .. </li>
+</ul>
+
+<script>
+
+    var Foo = function Foo(){};
+
+    Foo.prototype.x = 1;
+
+    var FooInstance = new Foo();
+
+    console.log(FooInstance.x);   // 1
+
+    // prototype 객체를 새로 만든 Object() 객체로 대체/재정의해 보자.
+    Foo.prototype= { x:2 };
+
+    console.log(FooInstance.x);   // 1. 엥? 우리가 방금 prototype을 갱신했으니 2가 되어야 하지 않나?
+    // FooInstance는 여전히 인스턴스로 만들어지던 시점의 prototype을 참조하고 있다.
+
+    // Foo()의 인스턴스를 새로 만든다.
+    var NewFooInstance = new Foo();
+
+    // 새로 만든 인스턴스는 새로운 prototype 객체(={x:2};)와 묶여있다.
+    console.log(NewFooInstance.x);  // 2
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="../../underscore.js"></script>
+</head>
+<body>
+<script>
+
+    function noConflict(){}
+
+    _.times(4, function() { console.log("Major") });
+    var underscore = _.noConflict();
+    //_.times(4, function() { console.log("Major") });      // Error
+    underscore.times(4, function() { console.log("Major") });
+    var _ = underscore.noConflict();
+
+
+
+    function identity(value) {
+
+    }
+    var stooge = {name: 'moe'};
+    stooge === _.identity(stooge);
+    // => true
+    _.identity(stooge);
+    // => {name: "moe"}
+
+
+
+    function constant(value) {
+
+    }
+    stooge === _.constant(stooge)();
+    // => true
+    _.constant(stooge)();
+    // => {name: "moe"}
+
+
+
+    function noop() {}
+
+    var obj = {};
+    obj.initialize = _.noop;
+    // => function (){}
+    console.log(obj);
+
+
+
+    // Run a function n times.
+    function times(n, iteratee) {
+
+    }
+
+    _.times(4, function() { console.log("Major") });
+    // => Major Major Major Major
+    // [undefined, undefined, undefined, undefined]
+
+
+
+
+    // Return a random integer between min and max (inclusive).
+    function random(min, max) {
+
+    }
+
+    _.random(0, 100);
+    // => 26
+    _.random(10);
+    // => 5
+
+
+
+
+
+    function mixin(object) {
+
+    }
+    _.mixin({
+        capitalize: function(string) {
+            return string.charAt(0).toUpperCase() + string.substring(1).toLowerCase();
+        }
+    });
+    _("fabio").capitalize();
+    // => "Fabio"
+
+    _.capitalize('fabio');
+    // => "Fabio"
+
+    _('aBC').capitalize();
+    // => "Abc"
+
+
+
+
+
+
+    function iteratee(value) {
+
+    }
+
+    var stooges = [{name: 'curly', age: 25}, {name: 'moe', age: 21}, {name: 'larry', age: 23}];
+    _.map(stooges, _.iteratee('age'));
+    // => [25, 21, 23];
+
+    _.map(stooges, _.iteratee('name'));
+    // => ["curly", "moe", "larry"]
+
+
+
+    _.uniqueId('contact_');
+    // => 'contact_104'
+    _.uniqueId('a_');
+    // => 'a_1'
+    _.uniqueId('b_');
+    // => 'b_2'
+
+
+
+
+    _.escape('Curly, Larry & Moe');
+    // => "Curly, Larry &amp; Moe"
+
+
+    _.unescape('Curly, Larry &amp; Moe');
+    // => "Curly, Larry & Moe"
+
+
+
+
+
+
+    function result(object, property) {
+
+    }
+    var object = {cheese: 'crumpets', stuff: function(){ return 'nonsense'; }};
+    _.result(object, 'cheese');
+    // => "crumpets"
+    _.result(object, 'stuff');
+    // => "nonsense"
+    _.result(object, 'meat', 'ham');
+    // => "ham"
+
+
+
+    _.now();
+    // => 1429512304371
+
+
+    var compiled = _.template("hello: <%= name %>");
+    compiled({name: 'moe'});
+    // => "hello: moe"
+
+    var template = _.template("<b><%- value %></b>");
+    template({value: '<script>'});
+    // => "<b>&lt;script&gt;</b>"
+
+    var template = _.template("<b><%= value %></b>");
+    template({value: '<script>'});
+    // => "<b><script></b>"
+
+
+    var compiled = _.template("<% print('Hello ' + epithet); %>");
+    compiled({epithet: "stooge"});
+    // => "Hello stooge"
+
+
+
+
+//    _.templateSettings = {
+//        interpolate: /\{\{(.+?)\}\}/g
+//    };
+    var template = _.template("Hello {{ name }}!");
+    template({name: "Mustache"});
+    // => "Hello Mustache!"
+
+
+
+
+
+
+    _.template("Using 'with': <%= data.answer %>", {variable: 'data'})({answer: 'no'});
+    // => "Using 'with': no"
+
+
+
+
+
+
+
+</script>
+</body>
+<body></body>
+</html>

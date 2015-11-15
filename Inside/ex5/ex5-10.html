@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript</title>
+</head>
+<body>
+클로저의 활용
+
+<script>
+
+    function HelloFunc(func) {
+        this.greeting = "hello";
+    }
+
+    HelloFunc.prototype.call = function(func) {
+        func ? func(this.greeting) : this.func(this.greeting);
+    };
+
+    var userFunc = function(greeting) {
+        console.log(greeting);
+    };
+
+    var objHello = new HelloFunc();
+
+    objHello.func = userFunc;
+    objHello.call();
+
+    function saySomething(obj, methodName, name) {
+        return (function(greeting) {
+            return obj[methodName](greeting, name);
+        });
+    }
+
+    function newObj(obj, name) {
+        obj.func = saySomething(this,"who",name);
+
+        return obj;
+    }
+
+    newObj.prototype.who = function(greeting, name) {
+        console.log(greeting + " " + (name || "everyone") );
+    };
+
+    var obj1 = new newObj(objHello, "zzoon");
+
+    obj1.call();
+
+
+
+    function closure(count) {
+        return function() {
+            return ++count;
+        };
+    }
+    var a = closure(0);
+    var b = closure(1);
+
+    console.log(a());
+    console.log(b());
+    console.log(a());
+</script>
+</body>
+</html>

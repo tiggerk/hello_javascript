@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>배열의 length 프로퍼티의 명시적 변경</title>
+</head>
+<body>
+배열의 length 프로퍼티의 명시적 변경
+
+<script>
+    var arr = [ 0, 1, 2 ];
+    console.log(arr.length);    // 3
+
+    arr.length = 5;
+    console.log(arr.length);    // 5
+    console.log(arr);           // [0, 1, 2, undefined x 2]   크롬에선 [0, 1, 2]
+
+    arr.length = 2;
+    console.log(arr.length);    // 2
+    console.log(arr);           // [0, 1]
+    console.log(arr[2]);        // undefined
+
+</script>
+</body>
+</html>

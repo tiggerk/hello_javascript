@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>동일한 객체를 참조하는 두 변수 objA와 objB</title>
+</head>
+<body>
+동일한 객체를 참조하는 두 변수 objA와 objB
+
+<script>
+
+    var objA = {
+        val : 40
+    };
+    var objB = objA;
+
+    console.log(objA.val);  // 40
+    console.log(objB.val);  // 40
+    console.log(objA);      // Object {val: 40}
+    console.log(objB);      // Object {val: 40}
+
+    objB.val = 50;
+    console.log(objA.val);  // 50
+    console.log(objB.val);  // 50
+    console.log(objA);      // Object {val: 50}
+    console.log(objB);      // Object {val: 50}
+
+    console.log(objA === objB);
+
+</script>
+</body>
+</html>

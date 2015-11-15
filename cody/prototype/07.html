@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+<h3> prototype 속성을 새 객체로 대체하면 기본 constructor 속성이 삭제된다 </h3>
+<ul>
+    <li> prototype 속성의 기본값은 다른 값으로 대체할 수 있다. </li>
+</ul>
+
+<script>
+
+    var Foo = function Foo(){};
+
+    Foo.prototype = {constructor:Foo};
+
+    var FooInstance = new Foo();
+
+    console.log(FooInstance.constructor === Foo);   // true
+    console.log(FooInstance.constructor);           // Foo()
+
+</script>
+</body>
+</html>

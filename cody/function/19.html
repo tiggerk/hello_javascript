@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h3> 재귀 호출 </h3>
+<ul>
+    <li> 함수는 자신을 호출할 수 있다. </li>
+</ul>
+
+<script>
+
+    var countDownFrom = function countDownFrom(num) {
+        console.log(num);
+        num--;  // 매개변수의 값을 수정한다.
+        if (num < 0) { return false; }    // num < 0이면 재귀 호출을 하지 않는다.
+        // 만약 익명 함수라면 arguments.callee(num)을 사용해 호출할 수 있다.
+        countDownFrom(num);
+    };
+
+    countDownFrom(5);   // 카운트다운을 시작한다. 순서대로 5, 4, 3, 2, 1, 0이 기록될 것이다.
+
+</script>
+</body>
+</html>
